@@ -7,9 +7,10 @@ pipeline {
                 echo 'Build inprogress'
             }
         }
-        stage('test') {
+        stage('web testing') {
             steps {
-                echo 'testing'
+                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+                echo 'Done'
             }
         }        
         stage('deploy') {
